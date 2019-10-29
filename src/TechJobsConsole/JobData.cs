@@ -57,11 +57,14 @@ namespace TechJobsConsole
 
             return jobs;
         }
-
+        
         public static List<Dictionary<string, string>> FindByValue(string value)
         {
+            value= value.ToUpper();
             // load data, if not already loaded
             LoadData();
+
+            /*
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> row in AllJobs)
@@ -79,7 +82,7 @@ namespace TechJobsConsole
             }
 
             return jobs;
-
+*/
 
 
 
@@ -99,11 +102,11 @@ namespace TechJobsConsole
 	                }
                 }
             return jobResults;
-
+            }
     */
-        }
+        
 
-            /*
+            
 
             List<Dictionary<string, string>> filteredJobs = new List<Dictionary<string, string>>();
 
@@ -113,7 +116,7 @@ namespace TechJobsConsole
 
                 foreach (var item in job.Values)
                 {
-                    if (item.Contains(value))
+                    if (item.ToUpper().Contains(value))
                     {
                         //abc.Add(new Dictionary<string, string>(xyz));
                         filteredJobs.Add(new Dictionary<string, string>(job));
@@ -128,7 +131,7 @@ namespace TechJobsConsole
             return filteredJobs;
             
         }
-        */
+        
 
 
 
