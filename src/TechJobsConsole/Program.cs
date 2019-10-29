@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace TechJobsConsole
 {
@@ -55,6 +56,7 @@ namespace TechJobsConsole
                     string columnChoice = GetUserSelection("Search", columnChoices);
 
                     // What is their search term?
+
                     Console.WriteLine("\nSearch term: ");
                     string searchTerm = Console.ReadLine();
 
@@ -63,7 +65,8 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        searchResults = JobData.FindByValue(searchTerm);
+                        PrintJobs(searchResults);
                     }
                     else
                     {
@@ -118,7 +121,47 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+            foreach (var item in someJobs)
+            {
+                Console.WriteLine("******");
+                foreach (KeyValuePair<string, string> job in item)
+                {
+                    Console.Write("{0}: ",job.Key);
+                    Console.WriteLine(" {0} ",job.Value);
+                    //Console.ReadLine();
+
+                }
+
+
+                
+            }
+
+
+
+            /*
+            StringBuilder myJobs = new StringBuilder();
+
+            foreach (var item in someJobs)
+            {
+                
+                foreach (KeyValuePair<string,string> job in item)
+                {
+                    myJobs.Append("\n");
+                    myJobs.Append("******");
+                    myJobs.Append("\n");
+                    myJobs.Append(job.Key);
+                    myJobs.Append("\t");
+                    myJobs.Append(job.Value);
+                    myJobs.Append("\n");
+                    
+                    //Console.WriteLine("{0}:" / t" {1} +" / n"", job.Key, job.Value);
+                }
+            
+            }
+                        
+            Console.WriteLine(myJobs);
+            //Console.WriteLine("printJobs is not implemented yet");
+            */
         }
     }
 }
