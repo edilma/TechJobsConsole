@@ -58,24 +58,66 @@ namespace TechJobsConsole
             return jobs;
         }
 
-        public static List<Dictionary<string, string>> FindByValue (string value )
+        public static List<Dictionary<string, string>> FindByValue(string value)
         {
             // load data, if not already loaded
             LoadData();
-
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                foreach (var column in row)
-                {
-                    string columnContent = column.Value;
-                    //string aValue = column.Value;
-                    //System.Console.WriteLine(column);
+                foreach (var item in row)
+	            {
+                    string aValue = row[column];
 
-                    if (columnContent.Contains(value))
+                            if (aValue.Contains(value))
+                            {
+                                jobs.Add(row);
+                            }
+	}
+               
+            }
+
+            return jobs;
+
+
+
+
+
+            
+            /*
+            List<Dictionary<string, string>> jobResults = new List<Dictionary<string, string>>();
+
+            foreach(Dictionary<string, string> job in AllJobs)
+                {
+                foreach (var item in job.Values)
+	                {
+                        if (item.Contains(value))
+	                    {
+                            jobResults.Add(job);
+	                    }
+	                }
+                }
+            return jobResults;
+
+    */
+        }
+
+            /*
+
+            List<Dictionary<string, string>> filteredJobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> job in AllJobs)
+            {
+                //List<string> valuesJob = job.Values;
+
+                foreach (var item in job.Values)
+                {
+                    if (item.Contains(value))
                     {
-                        jobs.Add(row);
+                        //abc.Add(new Dictionary<string, string>(xyz));
+                        filteredJobs.Add(new Dictionary<string, string>(job));
+                        
                     }
                     
 
@@ -83,10 +125,10 @@ namespace TechJobsConsole
                 
             }
 
-            return jobs;
-
+            return filteredJobs;
+            
         }
-
+        */
 
 
 
