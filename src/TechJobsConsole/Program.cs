@@ -123,6 +123,7 @@ namespace TechJobsConsole
         {
             foreach (var item in someJobs)
             {
+                Console.WriteLine("");
                 Console.WriteLine("******");
                 foreach (KeyValuePair<string, string> job in item)
                 {
